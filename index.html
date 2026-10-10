@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syosset Railroad Ave. Car Care — Automotive Service &amp; Repair</title>
+<meta name="description" content="Syosset Railroad Ave Car Care — honest, NYS-certified automotive service & repair in Syosset, NY. Domestic & foreign. Call 921-8181.">
+<style>
+  :root{
+    --red:#c8102e;
+    --dark-red:#8f0b21;
+    --ink:#1a1a1a;
+    --paper:#faf8f4;
+    --gray:#5f6368;
+    --gold:#f4b400;
+    --sign-border:#2b2b2b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+  }
+  a{color:var(--red);}
+  .container{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* ===== Top bar ===== */
+  .topbar{
+    background:var(--ink);color:#fff;font-size:.85rem;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:8px 20px;flex-wrap:wrap;gap:6px;
+  }
+  .topbar a{color:#fff;text-decoration:none;font-weight:600;}
+  .topbar .stars{color:var(--gold);letter-spacing:1px;}
+
+  /* ===== Sticky nav ===== */
+  nav{
+    position:sticky;top:0;z-index:100;
+    background:#fff;box-shadow:0 1px 6px rgba(0,0,0,.12);
+  }
+  nav .container{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  nav .brand{font-weight:800;font-size:1.05rem;letter-spacing:.3px;}
+  nav .brand span{color:var(--red);}
+  nav ul{display:flex;gap:22px;list-style:none;}
+  nav ul a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.9rem;}
+  nav ul a:hover{color:var(--red);}
+  .nav-call{
+    background:var(--red);color:#fff !important;padding:8px 16px;border-radius:4px;
+  }
+  @media(max-width:760px){nav ul{display:none;}}
+
+  /* ===== HERO : physical banner recreation ===== */
+  .hero{
+    background:
+      radial-gradient(1200px 400px at 50% 120%, rgba(0,0,0,.25), transparent 60%),
+      linear-gradient(180deg,#8a9bb0 0%,#aebccb 45%,#7d8fa6 100%);
+    padding:56px 20px 72px;
+    display:flex;justify-content:center;
+  }
+  .sign{
+    background:#fdfdfb;
+    border:10px solid var(--sign-border);
+    border-radius:6px;
+    box-shadow:0 18px 45px rgba(0,0,0,.45), inset 0 0 0 3px #fff;
+    max-width:860px;width:100%;
+    padding:34px 40px 26px;
+    text-align:center;
+    position:relative;
+    transform:rotate(-1deg);
+  }
+  .sign .line1{
+    font-weight:900;
+    font-size:clamp(1.6rem,4.5vw,2.8rem);
+    letter-spacing:2px;color:var(--ink);
+  }
+  .sign .line1 .dot{color:var(--red);}
+  .sign .carcare{
+    font-family:Georgia,"Times New Roman",serif;
+    font-style:italic;font-weight:900;
+    color:var(--red);
+    font-size:clamp(3rem,10vw,5.6rem);
+    line-height:.95;
+    text-shadow:2px 2px 0 #7a0a1c;
+    margin:2px 0 6px;
+  }
+  .sign .tagline{
+    font-family:Georgia,serif;font-style:italic;font-weight:700;
+    font-size:clamp(1.2rem,3.2vw,2rem);color:var(--ink);
+  }
+  .sign .phone-row{
+    display:flex;align-items:center;justify-content:center;
+    gap:clamp(8px,3vw,26px);margin-top:8px;flex-wrap:wrap;
+  }
+  .sign .phone{
+    font-weight:900;color:var(--red);
+    font-size:clamp(2rem,6.5vw,3.4rem);
+    letter-spacing:1px;line-height:1;
+  }
+  .sign .side{
+    font-size:clamp(.75rem,2vw,1.05rem);font-weight:700;color:var(--ink);
+  }
+  .sign .train{position:absolute;left:18px;top:26px;width:70px;opacity:.9;}
+  @media(max-width:560px){.sign .train{display:none;}}
+
+  .hero-strip{
+    background:var(--ink);color:#fff;text-align:center;
+    padding:14px 20px;font-size:.95rem;
+  }
+  .hero-strip b{color:var(--gold);}
+
+  /* ===== Sections ===== */
+  section{padding:64px 0;}
+  .sec-title{
+    text-align:center;margin-bottom:40px;
+  }
+  .sec-title h2{font-size:1.9rem;font-weight:800;}
+  .sec-title p{color:var(--gray);max-width:620px;margin:8px auto 0;}
+  .redbar{width:70px;height:5px;background:var(--red);margin:14px auto 0;border-radius:3px;}
+
+  /* ===== Services ===== */
+  .services{background:#fff;}
+  .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+  .svc{
+    background:var(--paper);border:1px solid #e7e2d8;border-radius:8px;
+    padding:22px;transition:transform .15s, box-shadow .15s;
+  }
+  .svc:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,.08);}
+  .svc .icon{font-size:1.7rem;}
+  .svc h3{font-size:1.05rem;margin:8px 0 6px;}
+  .svc p{font-size:.88rem;color:var(--gray);}
+  .svc-badge{
+    display:inline-block;background:var(--red);color:#fff;font-size:.7rem;
+    font-weight:700;padding:3px 8px;border-radius:3px;margin-top:8px;letter-spacing:.5px;
+  }
+
+  /* ===== About / Why us ===== */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+  @media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid h2{margin-bottom:14px;}
+  .about-grid ul{list-style:none;margin-top:14px;}
+  .about-grid li{padding-left:26px;position:relative;margin-bottom:10px;}
+  .about-grid li::before{content:"✔";color:var(--red);position:absolute;left:0;font-weight:900;}
+  .shop-photo{
+    border:10px solid var(--sign-border);border-radius:6px;overflow:hidden;
+    box-shadow:0 14px 34px rgba(0,0,0,.25);transform:rotate(1.2deg);
+    background:#fff;
+  }
+  .shop-photo img{display:block;width:100%;height:auto;}
+  .shop-photo figcaption{padding:10px;font-size:.8rem;color:var(--gray);text-align:center;}
+
+  /* ===== Gallery ===== */
+  .gallery{background:#fff;}
+  .gal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .gal{
+    border:8px solid var(--sign-border);border-radius:6px;overflow:hidden;background:#fff;
+    box-shadow:0 10px 26px rgba(0,0,0,.18);transition:transform .15s;
+  }
+  .gal:hover{transform:rotate(-1deg) scale(1.02);}
+  .gal img{display:block;width:100%;height:230px;object-fit:cover;}
+  .gal figcaption{padding:8px;font-size:.78rem;color:var(--gray);text-align:center;}
+
+  /* ===== Ratings ===== */
+  .ratings{background:var(--ink);color:#fff;}
+  .ratings .sec-title h2,.ratings .sec-title p{color:#fff;}
+  .ratings .sec-title p{color:#c9c9c9;}
+  .rate-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:44px;}
+  .rate-card{
+    background:#262626;border-radius:10px;padding:26px;text-align:center;
+    border:1px solid #3a3a3a;
+  }
+  .rate-card .big{font-size:2.6rem;font-weight:900;}
+  .rate-card .stars{color:var(--gold);font-size:1.2rem;letter-spacing:2px;}
+  .rate-card .src{font-size:.85rem;color:#aaa;margin-top:6px;}
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
+  .review{
+    background:#fff;color:var(--ink);border-radius:8px;padding:22px;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+  }
+  .review .stars{color:var(--gold);letter-spacing:2px;}
+  .review p{font-size:.9rem;margin:10px 0;color:#333;}
+  .review .who{font-weight:700;font-size:.85rem;}
+  .review .src-tag{font-size:.7rem;color:var(--gray);font-weight:600;}
+  .review .src-tag.g{color:#1a73e8;}
+  .review .src-tag.y{color:var(--dark-red);}
+
+  /* ===== Booking ===== */
+  .booking{background:#fff;}
+  .booking-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;}
+  @media(max-width:860px){.booking-grid{grid-template-columns:1fr;}}
+  .booking-info h3{margin-bottom:12px;}
+  .booking-info p{font-size:.92rem;color:var(--gray);margin-bottom:10px;}
+  .booking-info .ph{font-size:1.4rem;font-weight:900;color:var(--red);}
+  form{
+    background:var(--paper);border:1px solid #e7e2d8;border-radius:10px;padding:26px;
+  }
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+  label{display:block;font-size:.8rem;font-weight:700;margin:12px 0 4px;}
+  input,select,textarea{
+    width:100%;padding:10px 12px;border:1px solid #cfc9bd;border-radius:5px;
+    font-size:.92rem;background:#fff;font-family:inherit;
+  }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--red);border-color:var(--red);}
+  .btn{
+    display:inline-block;background:var(--red);color:#fff;border:none;cursor:pointer;
+    font-weight:800;font-size:1rem;padding:14px 28px;border-radius:5px;margin-top:18px;
+    letter-spacing:.5px;width:100%;
+  }
+  .btn:hover{background:var(--dark-red);}
+  .form-msg{margin-top:14px;padding:12px;border-radius:6px;font-size:.9rem;display:none;}
+  .form-msg.ok{display:block;background:#e6f4ea;color:#137333;border:1px solid #b7dfc2;}
+  .form-msg.err{display:block;background:#fce8e6;color:#c5221f;border:1px solid #f5c6c2;}
+
+  /* ===== Appointments table ===== */
+  .appts{margin-top:30px;}
+  .appts h3{margin-bottom:12px;}
+  .appts table{width:100%;border-collapse:collapse;background:#fff;font-size:.85rem;
+    border:1px solid #e7e2d8;border-radius:8px;overflow:hidden;}
+  .appts th{background:var(--ink);color:#fff;text-align:left;padding:10px 12px;}
+  .appts td{padding:10px 12px;border-top:1px solid #eee;}
+  .appts .code{font-family:Menlo,monospace;color:var(--red);font-weight:700;}
+  .appts .cancel{
+    color:#c5221f;cursor:pointer;font-weight:700;background:none;border:none;font-size:.8rem;
+  }
+
+  /* ===== Contact / footer ===== */
+  .contact{background:var(--ink);color:#fff;padding:56px 0 0;}
+  .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px;padding-bottom:44px;}
+  .contact h4{color:var(--gold);margin-bottom:10px;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;}
+  .contact p, .contact a{color:#ddd;font-size:.92rem;text-decoration:none;}
+  .contact a:hover{color:#fff;}
+  footer{background:#000;color:#888;text-align:center;padding:18px;font-size:.8rem;}
+  .hours td{padding:4px 14px 4px 0;font-size:.9rem;}
+  .hours .closed{color:#e07a7a;}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<div class="topbar">
+  <div>📍 1 Railroad Ave, Syosset, NY 11791</div>
+  <div class="stars">★ 5.0 Google (37) &nbsp;·&nbsp; <span style="color:#ccc">3.9 Yelp (10)</span></div>
+  <div>📞 <a href="tel:+15169218181">(516) 921-8181</a></div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="container">
+    <div class="brand">RAILROAD AVE. <span>CAR CARE</span></div>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#booking">Book Appointment</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:+15169218181" class="nav-call">📞 921-8181</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero: recreation of the physical shop banner -->
+<header class="hero">
+  <div class="sign">
+    <svg class="train" viewBox="0 0 100 60" aria-hidden="true">
+      <g fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round">
+        <path d="M8 48 h84" stroke-width="4"/>
+        <path d="M14 46 v-14 l16 -4 v18" fill="#1a1a1a" fill-opacity=".1"/>
+        <path d="M30 46 v-20 h28 v20" fill="#1a1a1a" fill-opacity=".08"/>
+        <rect x="36" y="30" width="16" height="9" rx="2"/>
+        <path d="M58 46 v-16 h18 l8 8 v8" fill="#1a1a1a" fill-opacity=".08"/>
+        <circle cx="22" cy="49" r="5" fill="#1a1a1a"/>
+        <circle cx="46" cy="49" r="5" fill="#1a1a1a"/>
+        <circle cx="70" cy="49" r="5" fill="#1a1a1a"/>
+        <path d="M78 22 q6 -8 0 -14 M84 24 q8 -10 0 -18"/>
+      </g>
+    </svg>
+    <div class="line1">Railroad Ave<span class="dot">.</span></div>
+    <div class="carcare">car care</div>
+    <div class="tagline">Automotive Service &amp; Repair</div>
+    <div class="phone-row">
+      <span class="side">domestic</span>
+      <a href="tel:+15169218181" style="text-decoration:none"><span class="phone">921-8181</span></a>
+      <span class="side">foreign</span>
+    </div>
+  </div>
+</header>
+<div class="hero-strip">
+  <b>NYS Certified</b> · Public Inspection Station · Serving Syosset &amp; Long Island — <b>honest work, fair prices</b>
+</div>
+
+<!-- Services -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Services We Provide</h2>
+      <p>Complete automotive service and diagnostic repair for domestic and foreign vehicles — the same services listed on our Google profile.</p>
+      <div class="redbar"></div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><div class="icon">🔧</div><h3>Auto General Diagnosis</h3><p>Check engine lights, performance issues and full-system diagnostics — we explain everything thoroughly before any work.</p><span class="svc-badge">MOST REQUESTED</span></div>
+      <div class="svc"><div class="icon">🔌</div><h3>No-Start Diagnosis</h3><p>Car won't start? Batteries, starters, alternators and fuel systems — quick diagnosis and same-day fixes.</p></div>
+      <div class="svc"><div class="icon">👂</div><h3>Noise Diagnosis</h3><p>Squeaks, clunks, rattles and grinding — we track down the source fast and tell you exactly what it needs.</p></div>
+      <div class="svc"><div class="icon">🔍</div><h3>Pre-Purchase Inspection</h3><p>Buying a used car? Get a full inspection before you sign, so you know what you're really getting.</p></div>
+      <div class="svc"><div class="icon">🛞</div><h3>Vibration Diagnosis</h3><p>Steering wheel shake or highway vibration? Tires, wheels, alignment or driveline — we'll find it.</p></div>
+      <div class="svc"><div class="icon">🛠️</div><h3>Brakes, Oil &amp; Maintenance</h3><p>Brake pads &amp; rotors, oil changes, transmission fluid, batteries and general maintenance.</p></div>
+      <div class="svc"><div class="icon">⚙️</div><h3>Engine Repair</h3><p>From oil cooler lines to complete engine replacements — professional work, done efficiently.</p></div>
+      <div class="svc"><div class="icon">📋</div><h3>NYS Safety Inspection</h3><p>Licensed New York State DMV Public Inspection Station — annual safety inspections done on the spot.</p><span class="svc-badge">NYS CERTIFIED</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="sec-title" style="text-align:left;margin-bottom:10px;">
+        <h2>Your Neighborhood Mechanic — Since Day One</h2>
+        <div class="redbar" style="margin-left:0;"></div>
+      </div>
+      <p style="color:var(--gray);">Syosset Railroad Ave Car Care is a trusted auto repair shop in Syosset, NY, catering to both <b>domestic and foreign vehicles</b>. Run by owner <b>Bobby</b> and mechanic <b>Mike</b>, we specialize in maintenance and repairs with honest, no-pressure advice.</p>
+      <ul>
+        <li>Honest mechanics who don't overcharge — a rare find these days</li>
+        <li>New York State Certified — Public Inspection Station (Facility #7084069)</li>
+        <li>Same-day service on most repairs</li>
+        <li>Fair prices — "I'd recommend him to my own mother"</li>
+        <li>Domestic &amp; foreign — Jeep, Lexus, Toyota, Hummer and more</li>
+      </ul>
+    </div>
+    <figure class="shop-photo">
+      <img src="assets/banner.jpg" alt="The classic Railroad Ave. Car Care sign at 1 Railroad Ave, Syosset">
+      <figcaption>Our shop sign on Railroad Ave — a Syosset landmark</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Gallery: photos submitted on Google & Yelp -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Photos From Our Customers</h2>
+      <p>Photos submitted by customers on Google Maps and Yelp — real work, real shop.</p>
+      <div class="redbar"></div>
+    </div>
+    <div class="gal-grid">
+      <figure class="gal"><img src="assets/photo1.jpg" alt="Customer photo of the shop — Railroad Ave Car Care"><figcaption>Customer photo · Google Maps</figcaption></figure>
+      <figure class="gal"><img src="assets/photo2.jpg" alt="Customer photo of work being done at Railroad Ave Car Care"><figcaption>Customer photo · Yelp</figcaption></figure>
+      <figure class="gal"><img src="assets/photo3.jpg" alt="Customer photo from outside Railroad Ave Car Care"><figcaption>Customer photo · Google Maps</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Ratings & Reviews (from Google Maps & Yelp) -->
+<section class="ratings" id="reviews">
+  <div class="container">
+    <div class="sec-title">
+      <h2>What Our Customers Say</h2>
+      <p>Real reviews submitted by real customers on Google Maps and Yelp.</p>
+      <div class="redbar"></div>
+    </div>
+    <div class="rate-cards">
+      <div class="rate-card"><div class="big">5.0</div><div class="stars">★★★★★</div><div class="src">Google Maps · 37 reviews</div></div>
+      <div class="rate-card"><div class="big">3.9</div><div class="stars" style="color:#e07a7a">★★★☆</div><div class="src">Yelp · 10 reviews</div></div>
+      <div class="rate-card"><div class="big">100%</div><div class="stars">HONEST</div><div class="src">"The most honest mechanic I've ever met"</div></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"God knew what he was doing when he led me to this shop. Bobby is such a down to earth guy and is always 100% honest and fair with prices. My 2005 Jeep Grand Cherokee motor blew a connecting rod… dropped it off to Bobby, and once he started working on it, it was done in 4 days. Unbelievable work."</p>
+        <div class="who">— 5★ review</div><div class="src-tag g">Google Maps · Feb 2026</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Wonderful people came about 1 mile to open my vehicle and charged nothing. Best people around, no wonder they have 5 stars across the pond. Thank you so much."</p>
+        <div class="who">— 5★ review</div><div class="src-tag g">Google Maps · Mar 2026</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"The owner Bobby was the most honest mechanic I've ever met. I'd gone in there fully expecting a major repair. Instead he got me in and out the same day and it cost me so much less than I was prepared to spend. I'd recommend him to my own mother."</p>
+        <div class="who">— 5★ review</div><div class="src-tag g">Google Maps · May 2025</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Mike's the best mechanic in Syosset and very helpful. He picked up my car and knew what's wrong with the car quickly. Gave me the car back by noon. Super efficient. I would definitely come back and with family and friends."</p>
+        <div class="who">— 5★ review</div><div class="src-tag g">Google Maps · Nov 2025</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Brought my mom's car in for a fix to the front bumper and staff was so helpful and pleasant! Quick work and with a smile."</p>
+        <div class="who">— 5★ review</div><div class="src-tag g">Google Maps · Nov 2025</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"I live locally and was lucky enough to find Bob at Syosset Railroad Ave Car Care… very nice, honest, reliable and professional. Very hard to find these days. He fixed my check engine light and explained everything to me very thoroughly."</p>
+        <div class="who">— 5★ review</div><div class="src-tag g">Google Maps · Mar 2025</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"I've been coming here for many years. These guys are honest mechanics and don't overcharge like so many places do. They even helped out my nephew when his old clunker died on him on a trip to the city."</p>
+        <div class="who">— Joan A.</div><div class="src-tag y">Yelp · Dec 2019</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"The best advice my Dad ever gave me was — find a good mechanic &amp; buy all your gas from him. Unfortunately there are no longer mechanics at gas stations. I've been using Bob for 10 years."</p>
+        <div class="who">— Drew D.</div><div class="src-tag y">Yelp · Feb 2025</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"What a wonderful experience I had bringing in my car here for the first time for a battery. Bobby stopped what he was working on and ordered the battery and installed it as soon as it was in."</p>
+        <div class="who">— Gail C.</div><div class="src-tag y">Yelp · Dec 2023</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"I brought my car for service before a big road trip to make sure that nothing goes wrong. Bob suggested that I should change all brakes, replace rotors, oil and transmission fluid change — and drive safe."</p>
+        <div class="who">— Christina W.</div><div class="src-tag y">Yelp · Jul 2016</div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>"Railroad Ave Car Care is a professional automotive maintenance and repair shop with a big heart that serves its customers to their satisfaction! I was there on an early September evening to have them replace an oil cooler line for my Lexus RX 350… after six hours of struggle, it proved to be a job too much for a DIYer without them."</p>
+        <div class="who">— 5★ review</div><div class="src-tag g">Google Maps · Sep 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking -->
+<section class="booking" id="booking">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Book an Appointment</h2>
+      <p>Pick a service and time — we'll have your bay reserved. (Demo site: bookings are saved to a local mock database.)</p>
+      <div class="redbar"></div>
+    </div>
+    <div class="booking-grid">
+      <div class="booking-info">
+        <h3>Prefer to call?</h3>
+        <a href="tel:+15169218181" class="ph">(516) 921-8181</a>
+        <p>Or just drive by — 1 Railroad Ave, Syosset, NY 11791, right by the LIRR tracks.</p>
+        <h3 style="margin-top:22px;">Hours</h3>
+        <table class="hours">
+          <tr><td>Mon – Fri</td><td>8:00 AM – 6:00 PM</td></tr>
+          <tr><td>Saturday</td><td>8:00 AM – 3:00 PM</td></tr>
+          <tr><td class="closed">Sunday</td><td class="closed">Closed</td></tr>
+        </table>
+      </div>
+      <div>
+        <form id="bookForm">
+          <div class="form-row">
+            <div><label for="name">Your Name *</label><input id="name" required placeholder="John Smith"></div>
+            <div><label for="phone">Phone *</label><input id="phone" required type="tel" placeholder="(516) 555-0100"></div>
+          </div>
+          <div class="form-row">
+            <div><label for="vehicle">Vehicle (Year/Make/Model) *</label><input id="vehicle" required placeholder="2011 Lexus RX 350"></div>
+            <div><label for="service">Service *</label>
+              <select id="service" required>
+                <option value="">— Select a service —</option>
+                <option>Auto General Diagnosis</option>
+                <option>Auto No-Start Diagnosis</option>
+                <option>Auto Noise Diagnosis</option>
+                <option>Auto Pre-Purchase Inspection</option>
+                <option>Auto Vibration Diagnosis</option>
+                <option>Brakes / Rotors</option>
+                <option>Oil Change / Maintenance</option>
+                <option>Engine Repair</option>
+                <option>Battery / Electrical</option>
+                <option>NYS Safety Inspection</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div><label for="date">Date *</label><input id="date" type="date" required></div>
+            <div><label for="time">Drop-off Time *</label>
+              <select id="time" required>
+                <option value="">— Select —</option>
+                <option>8:00 AM</option><option>9:00 AM</option><option>10:00 AM</option>
+                <option>11:00 AM</option><option>12:00 PM</option><option>1:00 PM</option>
+                <option>2:00 PM</option><option>3:00 PM</option><option>4:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <label for="notes">What's the car doing?</label>
+          <textarea id="notes" rows="3" placeholder="e.g. check engine light is on, squealing noise when braking…"></textarea>
+          <button class="btn" type="submit">BOOK MY APPOINTMENT</button>
+          <div id="formMsg" class="form-msg"></div>
+        </form>
+
+        <div class="appts">
+          <h3>Your Appointments <span style="font-weight:400;color:var(--gray);font-size:.8rem;">(mock database — stored in your browser)</span></h3>
+          <div id="apptsTable"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div>
+      <h4>Visit Us</h4>
+      <p>1 Railroad Ave<br>Syosset, NY 11791</p>
+      <p style="margin-top:8px;"><a href="https://maps.google.com/?q=40.823503,-73.502526" target="_blank" rel="noopener">📍 Get Directions →</a></p>
+    </div>
+    <div>
+      <h4>Call Us</h4>
+      <p><a href="tel:+15169218181">(516) 921-8181</a></p>
+      <p style="margin-top:8px;">domestic &amp; foreign</p>
+    </div>
+    <div>
+      <h4>Hours</h4>
+      <p>Mon–Fri: 8AM–6PM<br>Sat: 8AM–3PM<br>Sun: Closed</p>
+    </div>
+    <div>
+      <h4>Find Us On</h4>
+      <p>
+        <a href="https://www.yelp.com/biz/syosset-railroad-av-car-care-syosset" target="_blank" rel="noopener">Yelp →</a><br>
+        <a href="https://maps.google.com/?q=Syosset+Railroad+Ave+Car+Care" target="_blank" rel="noopener">Google Maps →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © Syosset Railroad Ave Car Care Inc · 1 Railroad Ave, Syosset, NY 11791 · (516) 921-8181 · NYS DMV Public Inspection Station #7084069 · Demo website
+</footer>
+
+<script>
+/* ============ MOCK DB (localStorage) ============ */
+const DB_KEY = "srrcc_appointments_v1";
+const db = {
+  load(){ try { return JSON.parse(localStorage.getItem(DB_KEY)) || []; } catch(e){ return []; } },
+  save(rows){ localStorage.setItem(DB_KEY, JSON.stringify(rows)); },
+  add(rec){ const rows = this.load(); rows.push(rec); this.save(rows); return rec; },
+  cancel(id){ const rows = this.load().filter(r => r.id !== id); this.save(rows); }
+};
+
+function renderAppts(){
+  const rows = db.load();
+  const el = document.getElementById("apptsTable");
+  if(!rows.length){
+    el.innerHTML = '<p style="color:var(--gray);font-size:.85rem;">No appointments booked yet. Your bookings will appear here after you submit the form.</p>';
+    return;
+  }
+  let html = '<table><thead><tr><th>Code</th><th>Name</th><th>Vehicle</th><th>Service</th><th>When</th><th></th></tr></thead><tbody>';
+  for(const r of [...rows].reverse()){
+    html += `<tr><td class="code">${r.code}</td><td>${esc(r.name)}</td><td>${esc(r.vehicle)}</td><td>${esc(r.service)}</td><td>${r.date} · ${esc(r.time)}</td><td><button class="cancel" data-id="${r.id}">Cancel</button></td></tr>`;
+  }
+  el.innerHTML = html + '</tbody></table>';
+}
+
+function esc(s){ const d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+function genCode(){
+  return "RR-" + Math.random().toString(36).slice(2,6).toUpperCase();
+}
+
+document.getElementById("bookForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const msg = document.getElementById("formMsg");
+  const get = id => document.getElementById(id).value.trim();
+
+  // Sunday check
+  const d = new Date(get("date") + "T12:00:00");
+  if(d.getDay() === 0){
+    msg.className = "form-msg err";
+    msg.textContent = "Sorry, we're closed on Sundays. Please pick Mon–Sat (Sat closes 3PM).";
+    return;
+  }
+
+  const rec = db.add({
+    id: Date.now(),
+    code: genCode(),
+    name: get("name"),
+    phone: get("phone"),
+    vehicle: get("vehicle"),
+    service: get("service"),
+    date: get("date"),
+    time: get("time"),
+    notes: get("notes")
+  });
+
+  msg.className = "form-msg ok";
+  msg.innerHTML = `✅ Appointment booked! Your confirmation code is <b>${rec.code}</b>. We'll call you at ${esc(rec.phone)} to confirm. See you on Railroad Ave!`;
+  this.reset();
+  renderAppts();
+});
+
+document.getElementById("apptsTable").addEventListener("click", function(e){
+  if(e.target.classList.contains("cancel")){
+    db.cancel(e.target.dataset.id);
+    renderAppts();
+  }
+});
+
+// min date = today
+const dateInput = document.getElementById("date");
+dateInput.min = new Date().toISOString().split("T")[0];
+renderAppts();
+</script>
+</body>
+</html>
